@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "axios": "^0.21.4",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "fs": "^0.0.1-security",
+    "mongoose": "^6.0.8",
+    "node-fetch": "^3.0.0"
+  },
+  "name": "binus-schedule-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "Christian Harjuno (SorataBaka)",
+  "license": "ISC",
+  "description": "A Discord bot that works as a BINUS notification system for upcoming classes."
+}
