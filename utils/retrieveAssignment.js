@@ -47,8 +47,6 @@ module.exports = {
                         },
                         "referrer": "https://newbinusmaya.binus.ac.id/",
                         "referrerPolicy": "strict-origin-when-cross-origin",
-
-
                     })
                     if (result.data.length > 0) {
 
