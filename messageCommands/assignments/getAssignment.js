@@ -1,7 +1,10 @@
 const retrieveAssignment = require("../../utils/retrieveAssignment")
+const PREFIX = process.env.PREFIX
 const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: "assignment",
+    description: "Get all upcoming assignment",
+    usage: `***${PREFIX} assignment***`,
     async execute(message, client) {
         const { content } = message
         const subjectAndAssignments = await retrieveAssignment()
