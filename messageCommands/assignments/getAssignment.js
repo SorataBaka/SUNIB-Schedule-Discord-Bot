@@ -1,4 +1,4 @@
-const retrieveAssignment = require("../../utils/retrieveAssignment")
+const {retrieveAssignment} = require("../../utils/retrieveAssignment.js")
 const PREFIX = process.env.PREFIX
 const { MessageEmbed } = require("discord.js")
 module.exports = {

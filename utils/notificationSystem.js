@@ -1,4 +1,3 @@
-const retrieve = require("./retrieveSchedule.js")
 const guildData = require("../schema/guildData.js")
 const { MessageEmbed } = require("discord.js")
 module.exports = async(client) => {
@@ -18,7 +17,7 @@ module.exports = async(client) => {
         //Converts the the hours, minute, seconds into seconds starting from the beginning of the day (00:00)
         const currentDurationSeconds = (hour*60*60) + (minutes*60) + seconds
         //calls the API to retrieve the schedule for the current day and checks each schedule based on the time
-        const dailySchedule = await retrieve(year, month, day)
+        const dailySchedule = await client.studentInstance.schedule(year, month, day)
         if(!dailySchedule) return 
         for(const schedule of dailySchedule){
             if(schedule.content == "EESE 1") return

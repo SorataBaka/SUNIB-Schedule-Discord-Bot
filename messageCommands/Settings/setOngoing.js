@@ -1,5 +1,4 @@
 const guildData = require("../../schema/guildData.js")
-const retrieveOngoing = require("../../utils/retrieveongoing.js")
 const { MessageEmbed } = require("discord.js")
 const prefix = process.env.PREFIX
 module.exports = {
@@ -16,7 +15,7 @@ module.exports = {
         if(!channel){
             return message.reply("Please mention a channel!")
         }
-        const ongoing = await retrieveOngoing()
+        const ongoing = await client.studentInstance.fetch({status: "ongoing"})
         if(!ongoing){
             var ongoingEmbed = new MessageEmbed()
                 .setTitle("You have no upcoming schedule!")

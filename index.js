@@ -25,16 +25,27 @@ for(dir of commandsDirectory){
     client.messageCommands.set(commandFile.name, commandFile)
   }
 }
-
-console.log(client.messageCommands)
 const notification = require("./utils/notificationSystem.js")
 const ongoing = require("./utils/updateongoing.js")
 const upcoming = require("./utils/updateupcoming.js")
+const studentInstance = require("./utils/studentClass.js")
 
-// const retrieveupcoming = require("./utils/retrieveupcoming.js")
-// const retrieveongoing = require("./utils/retrieveongoing.js")
-notification(client)
-ongoing(client)
-upcoming(client)
+if(process.env.ENABLE_NOTIFICATIONS == "true"){
+  console.log("Notification and update handler online")
+  notification(client)
+  ongoing(client)
+  upcoming(client)
+}
+
+const bearer = process.env.BEARER
+const cookie = process.env.COOKIE
+const tian = new studentInstance({
+  academicCareer : "RS1",
+  institution : "BNS01",
+  role: "Student",
+  bearer: bearer,
+  cookie: cookie
+})
+client.studentInstance = tian
 
 client.login(TOKEN)

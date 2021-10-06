@@ -1,4 +1,3 @@
-const retrieveUpcoming = require("./retrieveupcoming.js")
 const axios = require("axios")
 const guildData = require("../schema/guildData.js")
 const { MessageEmbed } = require("discord.js")
@@ -6,7 +5,7 @@ module.exports = async(client)=> {
     const updateMessage = async() =>{
         const query = await guildData.find({})
         if(query.length == 0) return
-        const upcoming = await retrieveUpcoming()
+        const upcoming = await client.studentInstance.fetch({status: "upcoming"})
         var embed;
         if(!upcoming){
             embed = new MessageEmbed()

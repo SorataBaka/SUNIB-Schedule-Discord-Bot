@@ -1,7 +1,9 @@
-const retrieveSchedule = require("../../utils/retrieveSchedule.js")
 const { MessageEmbed } = require("discord.js")
+const prefix = process.env.PREFIX
 module.exports = {
     name: "schedule",
+    description: "Retrives the complete schedule for a spesific date.",
+    usage: `***${prefix} schedule*** or ***${prefix} schedule {date}-{month}-{year}***`,
     async execute(message, client){
         var year
         var month
@@ -21,7 +23,7 @@ module.exports = {
             month = dateArray[1]
             year = dateArray[2]
         }
-        const scheduleQuery = await retrieveSchedule(year, month, day)
+        const scheduleQuery = await client.studentInstance.schedule(year, month, day)
         if(!scheduleQuery) return message.reply("No schedule available for that date")
         const embed = new MessageEmbed()
             .setTitle(`Here is the schedule for class LE01 on ${day}-${month}-${year}`)

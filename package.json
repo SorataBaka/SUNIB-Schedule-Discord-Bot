@@ -8,7 +8,7 @@
     "node-fetch": "^3.0.0"
   },
   "name": "binus-schedule-bot",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -17,5 +17,14 @@
   "keywords": [],
   "author": "Christian Harjuno (SorataBaka)",
   "license": "ISC",
-  "description": "A Discord bot that works as a BINUS notification system for upcoming classes."
+  "description": "A Discord bot that works as a BINUS notification system for upcoming classes.",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SorataBaka/SUNIB-Schedule-Discord-Bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SorataBaka/SUNIB-Schedule-Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/SorataBaka/SUNIB-Schedule-Discord-Bot#readme"
 }
