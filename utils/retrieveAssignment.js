@@ -7,7 +7,7 @@ const subjectsAndLinksDict = {
 }
 module.exports = {
     ///returns a dictionary 
-    async retrieveFunction() {
+    retrieveAssignment: async function () {
         for (var subject in subjectsAndLinksDict) {
             //get inidividual and group assignment
             for (var i = 1; i <= 2; i++) {
