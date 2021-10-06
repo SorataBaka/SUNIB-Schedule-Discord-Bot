@@ -39,15 +39,13 @@ module.exports = {
                         },
                         "referrer": "https://newbinusmaya.binus.ac.id/",
                         "referrerPolicy": "strict-origin-when-cross-origin",
-
-
                     })
                     if (result.data.length > 0) {
                         console.log("Subjects : " + subject + " assignment type : " + assignmentType);
                         console.log(result.data);
                     }
                     else {
-                        console.log("no assignment ");
+                        console.log("no assignment");
                     }
 
                 } catch (error) {
