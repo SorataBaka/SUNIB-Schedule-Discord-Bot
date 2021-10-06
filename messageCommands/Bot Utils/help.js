@@ -32,8 +32,10 @@ module.exports = {
             const commandName = string.split(" ")[0]
             const commandData = await client.messageCommands.get(commandName)
             if(!commandData) return message.reply("That command is not found")
-            const description = commandData.description || "NO DESCRIPTION AVAILABLE"
-            const usage = commandData.usage || "NO INFORMATION AVAILABLE"
+            var description = commandData.description
+            var usage = commandData.usage
+            if(!description) description = "NO INFORMATION AVAILABLE"
+            if(!usage) usage = "NO INFORMATION AVAILABLE"
             const embed = new MessageEmbed()
                 .setAuthor("LE01 - Bina Nusantara University")
                 .setTitle("Help module for LE-01 SUNIB Discord Bot")
