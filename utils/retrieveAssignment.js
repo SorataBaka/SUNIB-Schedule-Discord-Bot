@@ -1,17 +1,19 @@
-const axios = require("axios")
+const axios = require("axios");
 
 const subjectsAndLinksDict = {
     "linear_algebra": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/MATH6030001/020730/2110/LEC/20007",
 
-
-}
+    "program design method": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/COMP6798001/022009/2110/LEC/22202"
+};
 module.exports = {
-    ///returns a dictionary 
-    async retrieveFunction() {
+    ///returns a dictionary of [Key:subject ,value assignment json]
+    async retrieveAssignment() {
+        assignmentNameAndAssignment = {};
         for (var subject in subjectsAndLinksDict) {
+
             //get inidividual and group assignment
             for (var i = 1; i <= 2; i++) {
-                url = subjectsAndLinksDict[subject] + "/" + "0" + i
+                url = subjectsAndLinksDict[subject] + "/" + "0" + i;
                 assignmentType = "";
                 if (i == 1) {
                     assignmentType = "Individual";
@@ -41,21 +43,22 @@ module.exports = {
                         "referrerPolicy": "strict-origin-when-cross-origin",
                     })
                     if (result.data.length > 0) {
-                        console.log("Subjects : " + subject + " assignment type : " + assignmentType);
-                        console.log(result.data);
+
+                        assignmentName = subject + "(" + assignmentType + " assignment" + ")"
+                        assignmentNameAndAssignment[assignmentName] = result.data;
                     }
                     else {
                         console.log("no assignment");
                     }
 
                 } catch (error) {
-                    console.log("error")
+                    console.log("error");
                     console.error(error);
                 }
 
             }
         }
-
+        return assignmentNameAndAssignment;
     },
 
 };
