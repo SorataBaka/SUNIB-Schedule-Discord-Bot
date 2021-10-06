@@ -2,8 +2,14 @@ const axios = require("axios");
 
 const subjectsAndLinksDict = {
     "linear_algebra": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/MATH6030001/020730/2110/LEC/20007",
+    "program design method": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/COMP6798001/022009/2110/LEC/22202",
+    "Character building pancasila": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/CHAR6013001/021583/2110/LEC/21695",
+    "Algorithm And Programming": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/COMP6047001/020538/2110/LAB/23619",
+    "ESSE": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/EESE0001/002394/2110/LEC/13276",
+    "Indonesian": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/LANG6027001/020841/2110/LEC/20475",
+    "Discrete Math": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/MATH6025001/020727/2110/LEC/19976",
+    "statistic": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/STAT6171001/021813/2110/LEC/21973",
 
-    "program design method": "https://binusmaya.binus.ac.id/services/ci/index.php/student/classes/assignmentType/COMP6798001/022009/2110/LEC/22202"
 };
 module.exports = {
     ///returns a dictionary of [Key:subject ,value assignment json]
@@ -47,10 +53,6 @@ module.exports = {
                         assignmentName = subject + "(" + assignmentType + " assignment" + ")"
                         assignmentNameAndAssignment[assignmentName] = result.data;
                     }
-                    else {
-                        console.log("no assignment");
-                    }
-
                 } catch (error) {
                     console.log("error");
                     console.error(error);
