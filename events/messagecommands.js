@@ -1,3 +1,5 @@
+const { InviteGuild } = require("discord.js")
+
 const PREFIX = process.env.PREFIX
 module.exports = {
   eventName: "messageCreate",
@@ -10,6 +12,7 @@ module.exports = {
     const messageArray = message.content.split(" ")
     if(messageArray[0].toLowerCase() == PREFIX.toLowerCase()){
       const executeCommand = client.messageCommands.get(messageArray[1].toLowerCase())
+      if(!executeCommand) return 
       return executeCommand.execute(message, client)
     }
   }

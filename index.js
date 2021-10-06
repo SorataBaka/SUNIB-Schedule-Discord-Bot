@@ -30,14 +30,11 @@ console.log(client.messageCommands)
 const notification = require("./utils/notificationSystem.js")
 const ongoing = require("./utils/updateongoing.js")
 const upcoming = require("./utils/updateupcoming.js")
-const {retrieveAssignment} = require("./utils/retrieveAssignment.js")
 
 // const retrieveupcoming = require("./utils/retrieveupcoming.js")
 // const retrieveongoing = require("./utils/retrieveongoing.js")
-notification(client)
-ongoing(client)
-upcoming(client)
+// notification(client)
+// ongoing(client)
+// upcoming(client)
 
-
-retrieveAssignment()
 client.login(TOKEN)
