@@ -1,26 +1,29 @@
-const {Client, Intents, Collection}  = require('discord.js')
+// import {Client, Intents, Collection} from 'discord.js'\
+const { Client, Intents, Collection } = require("discord.js")
 const fs = require("fs")
 
 require('dotenv').config()
 
 const TOKEN = process.env.TOKEN
-const botIntents = new Intents(IntentsBot = Object.values(Intents.FLAGS).reduce((acc, p) => acc | p, 0))
+
+const IntentsBot = Object.values(Intents.FLAGS).reduce((acc, p) => acc | p, 0)
+const botIntents = new Intents(IntentsBot)
 const client = new Client({intents: botIntents})
 
 client.messageCommands = new Collection()
 
 const commandsDirectory = fs.readdirSync("./messageCommands")
-const events = fs.readdirSync("./events").filter(file => file.endsWith(".js"))
+const events = fs.readdirSync("./events").filter((file) => file.endsWith(".js"))
 
 //parse events
-for(file of events){
+for(const file of events){
   const event = require(`./events/${file}`)
   client.on(event.eventName, (...args) => event.execute(...args, client))
 }
 //parse message based commands
-for(dir of commandsDirectory){
-  const commandCategories = fs.readdirSync(`./messageCommands/${dir}`).filter(file => file.endsWith(".js"))
-  for(commands of commandCategories){
+for(const dir of commandsDirectory){
+  const commandCategories = fs.readdirSync(`./messageCommands/${dir}`).filter((file)=> file.endsWith(".js"))
+  for(const commands of commandCategories){
     const commandFile = require(`./messageCommands/${dir}/${commands}`)
     client.messageCommands.set(commandFile.name, commandFile)
   }
@@ -38,14 +41,27 @@ if(process.env.ENABLE_NOTIFICATIONS == "true"){
 }
 
 const bearer = process.env.BEARER
-const cookie = process.env.COOKIE
-const tian = new studentInstance({
+// const cookie = process.env.COOKIE
+
+
+// interface Student{
+//   academicCareer:string;
+//   institution:string;
+//   role:string;
+//   bearer:string;
+//   //cookie:string;
+// }
+
+const user={
   academicCareer : "RS1",
   institution : "BNS01",
   role: "Student",
   bearer: bearer,
-  cookie: cookie
-})
+  //cookie: cookie
+}
+
+const tian = new studentInstance(user)
+
 client.studentInstance = tian
 
 client.login(TOKEN)

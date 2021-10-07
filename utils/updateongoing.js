@@ -1,4 +1,3 @@
-const axios = require("axios")
 const guildData = require("../schema/guildData.js")
 const { MessageEmbed } = require("discord.js")
 module.exports = async(client)=> {
