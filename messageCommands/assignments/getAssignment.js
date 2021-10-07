@@ -30,16 +30,16 @@ module.exports = {
         for (var key in subjectAndAssignments) {
             assignments = subjectAndAssignments[key];
             if (assignments.length > 0) {
-                mainEmbed.addField(key + " has :  ", assignments.length.toString() + " assignments");
+                mainEmbed.addField(key, '\u200b');
                 for (var i = 0; i < assignments.length; i++) {
                     assignment = assignments[i];
                     assignmentTitle = assignment["Title"];
                     deadlineDate = assignment["deadlineDuration"];
                     deadlineTime = assignment["deadlineTime"];
-                    mainEmbed.addField('\u200b',
+                    mainEmbed.addField((i + 1).toString() + ".",
                         "Title : " + assignmentTitle + "\n" +
                         "Deadline Date : " + deadlineDate + "\n" +
-                        "Deadline Time : " + deadlineTime + "\n");
+                        "Deadline Time : " + deadlineTime);
                 }
             }
 
