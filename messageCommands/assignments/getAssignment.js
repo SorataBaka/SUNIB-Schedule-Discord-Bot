@@ -19,7 +19,7 @@ module.exports = {
             embeds: [infoEmbed]
         })
         const subjectAndAssignments = await retrieveAssignment()
-        //console.log(JSON.stringify(subjectAndAssignments));
+        console.log(JSON.stringify(subjectAndAssignments));
         if (!subjectAndAssignments) return message.reply("No assignment available")
         const mainEmbed = new MessageEmbed()
             .setTitle(`Here is the upcoming assignment`)
@@ -30,7 +30,7 @@ module.exports = {
         for (var key in subjectAndAssignments) {
             assignments = subjectAndAssignments[key];
             if (assignments.length > 0) {
-                mainEmbed.addField(key + " has : ", assignments.length.toString() + " assignments\n");
+                mainEmbed.addField(key + " has :  ", assignments.length.toString() + " assignments");
                 for (var i = 0; i < assignments.length; i++) {
                     assignment = assignments[i];
                     assignmentTitle = assignment["Title"];
