@@ -50,7 +50,7 @@ module.exports = {
                     })
                     if (result.data.length > 0) {
 
-                        assignmentName = subject + "(" + assignmentType + " assignment" + ")"
+                        assignmentName = subject + " (" + assignmentType + " assignment" + ") "
                         assignmentNameAndAssignment[assignmentName] = result.data;
                     }
                 } catch (error) {
