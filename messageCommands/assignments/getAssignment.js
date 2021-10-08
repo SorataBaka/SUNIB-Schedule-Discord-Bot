@@ -42,11 +42,10 @@ module.exports = {
                         "Deadline Time : " + deadlineTime);
                 }
             }
-
         }
-        message.reply({
+        message.edit({
             embeds: [mainEmbed]
-        })
+        }).catch()
 
     },
 }

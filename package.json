@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@types/node": "^16.10.3",
     "axios": "^0.21.4",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
@@ -11,10 +12,17 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "tsc -p && nodemon",
-    "build": "tsc -p"
+    "dev": "nodemon"
   },
-  "keywords": ["sunib", "binus", "schedule", "newbinusmaya", "binusapi", "discord", "discordbot"],
+  "keywords": [
+    "sunib",
+    "binus",
+    "schedule",
+    "newbinusmaya",
+    "binusapi",
+    "discord",
+    "discordbot"
+  ],
   "author": "Christian Harjuno (SorataBaka)",
   "license": "ISC",
   "description": "A Discord bot that works as a BINUS notification system for upcoming classes.",
